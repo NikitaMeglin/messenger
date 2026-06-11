@@ -1,0 +1,45 @@
+services:
+  # ========== БЭКЕНД API ==========
+  - type: web
+    name: messenger-backend
+    runtime: image
+    repo: https://github.com/ВАШ_АККАУНТ/messenger
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: messenger-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: messenger-redis
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+
+  # ========== ФРОНТЕНД ==========
+  - type: web
+    name: messenger-frontend
+    runtime: image
+    repo: https://github.com/ВАШ_АККАУНТ/messenger
+    plan: free
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: VITE_API_URL
+        value: https://messenger-backend.onrender.com
+
+# ========== БАЗА ДАННЫХ ==========
+databases:
+  - name: messenger-db
+    plan: free
+    databaseName: messenger
+    user: messenger
+
+# ========== REDIS ==========
+redis:
+  - name: messenger-redis
+    plan: free
