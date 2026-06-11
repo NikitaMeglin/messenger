@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru" style="margin: 0; padding: 0; height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Мой Мессенджер</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0e0e12;
+        }
+        
+        #root {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+        
+        /* Скрываем скроллбары но оставляем функционал */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1f1f2e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #4a4a5a;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a5a6a;
+        }
+        
+        /* Для Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #4a4a5a #1f1f2e;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/index-v9dK1OZI.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
